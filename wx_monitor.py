@@ -18,7 +18,7 @@ from webapp import models
 from webapp import db
 from exceptions import NoneKeyUinError, KeyExpireError, ArticleHasBeenDeleteError, IPError
 from settings import SLEEP_TIME, WX_REDIS_CONFIG, WX_CHAT_WND_NAME, WX_UPDATE_TIME, WX_NOT_UPDATE_TIME, UPDATE_DELAY, \
-    UPDATE_STOP, MONITOR_DEBUG
+    UPDATE_STOP, MONITOR_ERROR
 
 
 def delete_key_uin(account_biz):
@@ -120,7 +120,7 @@ class _MonitorThread(threading.Thread):
                 self.start_run()
             except Exception as e:
                 print(e.args)
-                if MONITOR_DEBUG:
+                if MONITOR_ERROR:
                     raise
             time.sleep(0.1)
 
