@@ -116,7 +116,7 @@ class _MonitorThread(threading.Thread):
     def run(self):
         self.setName(self.__class__.__name__)
         while 1:
-            # self.start_run()
+            self.start_run()
             try:
                 self.start_run()
             except Exception as e:
