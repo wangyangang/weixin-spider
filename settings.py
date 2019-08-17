@@ -3,6 +3,8 @@
 # @Time   : 2019/6/21 11:15
 # @File   : settings.py
 
+MONITOR_DEBUG = False
+
 SLEEP_TIME = 10  # 调用时建议使用的睡眠时间，以免账号被限制，大于等于10
 UPDATE_DELAY = 3  # 数据更新速度，不宜过快
 UPDATE_STOP = 60  # 数据暂停更新时间
