@@ -91,7 +91,7 @@ class Comment(db.Model):
     user_name = db.Column(db.String(50))
     user_logo = db.Column(db.String(300))
 
-    content = db.Column(db.String(300))
+    content = db.Column(db.String(500))
     datetime = db.Column(db.String(20))
 
     content_id = db.Column(db.String(30), unique=True)
