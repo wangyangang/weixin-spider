@@ -6,7 +6,7 @@
 MONITOR_ERROR = False  # wx_monitor.py容错控制
 
 SLEEP_TIME = 10  # 调用时建议使用的睡眠时间，以免账号被限制，大于等于10
-UPDATE_DELAY = 3  # 数据更新速度，不宜过快
+UPDATE_DELAY = 2  # 数据更新速度，不宜过快
 UPDATE_STOP = 60  # 数据暂停更新时间
 
 USER_AGENT_WECHAT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 QBCore/3.53.1159.400 QQBrowser/9.0.2524.400 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat"
