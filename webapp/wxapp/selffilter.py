@@ -24,6 +24,7 @@ def timestamp2time(timestamp):
 
 
 def data_src(html):
+    html = html.replace("visibility: hidden;", "")
     dom = PyQuery(html)
     for img in dom("img"):
         url = img.get('data-src', "")

@@ -330,7 +330,7 @@ class Comment(_MonitorThread):
                 )
                 db.session.add(comment)
                 db.session.commit()
-            comment = models.Comment.query.filter_by(content_id=str(comment_item["content_id"])).first()
+            comment = models.Comment.query.filter_by(content_id="%s" % comment_item["content_id"]).first()
             reply_list = comment_item["reply_list"]
             for reply_item in reply_list:
                 reply = models.CommentReply(
