@@ -13,7 +13,9 @@ db = SQLAlchemy(app)
 app.debug = True
 from webapp.wxapp import wx_app as wx_app_blueprint
 app.register_blueprint(wx_app_blueprint)
-
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 @app.errorhandler(400)
 def page_400(error):
     return render_template("400.html"), 400
