@@ -61,7 +61,6 @@
 1、确定mysql 、redis服务开启状态
 ```
 # 创建mysql数据库 weixin_spider  字符集utf8mb4
-# cd ./webapp/ 运行models.py 生成数据库表
 # 查看表结构是否生成正确
 ```
 
