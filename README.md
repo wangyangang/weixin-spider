@@ -29,6 +29,12 @@
 
 ```
 
+#### 2020-10-12 更新
+移步☞ https://github.com/xzkzdx/weixin-spider/releases/tag/static%26templates下载必要文件。
+
+解压缩到webapp/目录下，提取目标文件webapp/static/及webapp/templates/
+
+
 #### 2019-08-22 更新
 
 1、修改webapp/models.py中Comment类下content = db.Column(db.String(800))以修复评论中出现长内容的评论
