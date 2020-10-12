@@ -119,6 +119,10 @@ class CommentReply(db.Model):
     comment_id = db.Column(db.Integer, db.ForeignKey("wx_comment.id"))
 
 
-if __name__ == '__main__':
+def create_all():
     db.create_all()
+
+
+if __name__ == '__main__':
+    create_all()
     pass

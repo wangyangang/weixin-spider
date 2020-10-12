@@ -34,6 +34,8 @@
 
 解压缩到webapp/目录下，提取目标文件webapp/static/及webapp/templates/
 
+创建数据库模型的方式：
+    python create_model.py
 
 #### 2019-08-22 更新
 
