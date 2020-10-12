@@ -106,3 +106,7 @@ venv.bak/
 
 .idea/
 test.py
+
+static/
+templates/
+static&templates.rar
