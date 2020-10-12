@@ -30,7 +30,7 @@
 ```
 
 #### 2020-10-12 更新
-移步☞ https://github.com/xzkzdx/weixin-spider/releases/tag/static%26templates下载必要文件。
+移步☞ https://github.com/xzkzdx/weixin-spider/releases/tag/static%26templates 下载必要文件。
 
 解压缩到webapp/目录下，提取目标文件webapp/static/及webapp/templates/
 
