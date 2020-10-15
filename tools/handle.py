@@ -17,7 +17,7 @@ class CheckHandle:
         def __wrapper(myself, *args, **kwargs):
             myself.handle = win32gui.FindWindow(myself.classname, myself.title)
             if myself.handle == 0:
-                raise HandleDoseNotExistError(f"{myself.title}窗口不存在")
+                raise HandleDoseNotExistError(f"{myself.title}窗口不存在{myself.classname}")
             # win32gui.ShowWindow(myself.handle, win32con.SW_SHOWDEFAULT)
             # win32gui.SetForegroundWindow(myself.handle)
             # win32gui.ShowWindow(myself.handle, win32con.SW_HIDE)
@@ -60,6 +60,7 @@ class HandleModel:
         # win32api.SetCursorPos(rect_position)
         # 将两个16位的值连接成一个32位的地址坐标
         long_position = win32api.MAKELONG(*rect_position)
+        # print(long_position, "long_position", rect_position)
         # 点击左键
         win32api.SendMessage(handle, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, long_position)
         win32api.SendMessage(handle, win32con.WM_LBUTTONUP, win32con.MK_LBUTTON, long_position)
@@ -67,6 +68,8 @@ class HandleModel:
     @staticmethod
     def handle_size(rect: tuple):
         return tuple(abs(x - y) for x, y in zip(rect[:2], rect[2:]))
+
+    # def
 
 
 class WeChatWnd:
@@ -88,10 +91,12 @@ class WeChatWnd:
     def send_msg(self, msg: str):
         self.handle_model.text_to_clipboard(msg)
         rect_position = (200, self.handle_size[1] - 50)
-        # win32api.SetCursorPos(rect_position)
+        win32api.SetCursorPos(rect_position)
         self.handle_model.mouse_right_click_position(self.handle, rect_position)
         time.sleep(0.001)
         CMenuWnd().click_menu_wnd()
+        time.sleep(0.1)
+        # self.handle_model.mouse_left_click_position(self.handle, (30, 15))
         time.sleep(0.001)
         self.handle_model.mouse_left_click_position(self.handle, (self.handle_size[0] - 60, self.handle_size[1] - 15))
         time.sleep(0.1)
@@ -104,7 +109,7 @@ class WeChatWnd:
         handle_size = self.handle_model.handle_size(self.rect)
         # print(handle_size, handle_size[0] // 2)
         self.handle_model.mouse_left_click_position(self.handle, (handle_size[0] // 2, 450))
-        print(WeChatWebViewWnd().handle_id())
+        # print(WeChatWebViewWnd().handle_id())
 
     @staticmethod
     def close_web():
@@ -116,7 +121,7 @@ class CMenuWnd:
     check_handle = CheckHandle()
     handle_model = HandleModel()
 
-    def __init__(self, title: str = "CMenuWnd", classname: str = "CMenuWnd"):
+    def __init__(self, title: str = "", classname: str = "CMenuWnd"):
         self.title = title
         self.classname = classname
         self.handle = 0
@@ -124,7 +129,12 @@ class CMenuWnd:
 
     @check_handle.check_handle
     def click_menu_wnd(self, t_position: int = 15):
+        # print(self.handle, "CMenuWnd", self.rect)
+        # win32api.SetCursorPos(self.rect)
+        win32api.SetCursorPos((self.rect[0] + 30, self.rect[1] + 15))
+        time.sleep(0.1)
         self.handle_model.mouse_left_click_position(self.handle, (30, t_position))
+        time.sleep(0.1)
 
 
 class ToastWnd:
@@ -255,4 +265,6 @@ class Fiddler:
 
 
 if __name__ == '__main__':
+    wx_chat = WeChatWnd("文件传输助手")
+    wx_chat.send_msg("cerfgwr")
     pass

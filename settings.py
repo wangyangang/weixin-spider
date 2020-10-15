@@ -3,7 +3,7 @@
 # @Time   : 2019/6/21 11:15
 # @File   : settings.py
 
-MONITOR_ERROR = False  # wx_monitor.py容错控制
+DEBUG = False  # wx_monitor.py容错控制
 
 SLEEP_TIME = 10  # 调用时建议使用的睡眠时间，以免账号被限制，大于等于10
 UPDATE_DELAY = 2  # 数据更新速度，不宜过快

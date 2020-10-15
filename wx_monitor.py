@@ -18,7 +18,7 @@ from webapp import models
 from webapp import db
 from exceptions import NoneKeyUinError, KeyExpireError, ArticleHasBeenDeleteError, IPError
 from settings import SLEEP_TIME, WX_REDIS_CONFIG, WX_CHAT_WND_NAME, WX_UPDATE_TIME, WX_NOT_UPDATE_TIME, UPDATE_DELAY, \
-    UPDATE_STOP, MONITOR_ERROR
+    UPDATE_STOP, DEBUG
 
 
 def delete_key_uin(account_biz):
@@ -59,10 +59,10 @@ def check_key_uin(account_biz):
 
 
 def get_pass_key_and_uin(article_url: str, account_biz: str):
-    wx_chat = WeChatWnd(WX_CHAT_WND_NAME)
     key_uin = _get_key_uin(account_biz)
 
     while not key_uin:
+        wx_chat = WeChatWnd(WX_CHAT_WND_NAME)
         try:
             wx_chat.send_msg(article_url)
             wx_chat.click_last_msg()
@@ -120,7 +120,7 @@ class _MonitorThread(threading.Thread):
                 self.start_run()
             except Exception as e:
                 print(e.args)
-                if MONITOR_ERROR:
+                if DEBUG:
                     raise
             time.sleep(0.1)
 
