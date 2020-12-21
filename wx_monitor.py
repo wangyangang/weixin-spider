@@ -175,6 +175,7 @@ class History(_MonitorThread):
                     "uin": key_uin_dict.get("uin", ""),
                     "biz": account_biz,
                     "offset": offset,
+                    "cookies": key_uin_dict.get("cookies", "")
                 })
                 ending = histories['ending']
                 next_offset = histories["next_offset"]
