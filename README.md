@@ -79,20 +79,20 @@
 4、依次运行py脚本(亦可运行.sh文件代替)
 
 ```
-运行 wx_monitor.py
+1. 运行 wx_monitor.py
 
-# 运行 manage.py 打开网页 http://127.0.0.1:5000/   
-# flask默认开启端口 5000 可自行修改端口， 默认开启debug
+2. 运行 manage.py 打开网页 http://127.0.0.1:5000/   
+flask默认开启端口 5000 可自行修改端口， 默认开启debug
 
-# 成功开启web界面后执行以下
+成功开启web界面后执行以下
 
-# 在当前tools目录内打开cmd窗口（或cmd切换到tools文件目录内）
-# 执行 mitmdump -s ./addons.py 开启miltmproxy代理 默认端口 8080
-# 出现以下两行，及成功开启，否则核对错误。 当前cmd下ctrl + c可退出mitmproxy代理
-# Loading script ./addons.py
-# Proxy server listening at http://*:8080
+3. 在当前tools目录内打开cmd窗口（或cmd切换到tools文件目录内）
+执行 `mitmdump -s ./addons.py` 开启miltmproxy代理 默认端口 8080
+出现以下两行，及成功开启，否则核对错误。 当前cmd下ctrl + c可退出mitmproxy代理
+Loading script ./addons.py
+Proxy server listening at http://*:8080
 
-# 打开系统设置，找到网络里的代理，开启使用代理服务器 地址：127.0.0.1 端口：8080 保存
+4. 打开系统设置，找到网络里的代理，开启使用代理服务器 地址：127.0.0.1 端口：8080 保存
 
 ```
 
