@@ -145,8 +145,13 @@ def get_history_api(**kwargs):
         "key": kwargs["key"],
         "f": "json",
     }
+    cookies = kwargs['cookies']
     request = Request(uri_api, data=urlencode(form_data).encode(), headers={
-        "User-Agent": USER_AGENT,
+        "user-agent": USER_AGENT,
+        "cookie": cookies,
+        "accept": "image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": 'en-us'
     })
     resp_json = loads(urlopen(request, context=_create_unverified_context()).read().decode(), encoding="utf-8")
     article_infos = []
