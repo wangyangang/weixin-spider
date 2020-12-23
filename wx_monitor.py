@@ -244,7 +244,10 @@ class History(_MonitorThread):
 class Article(_MonitorThread):
     @staticmethod
     def get_comment_id_from_html(res_html):
-        return re.search(r"comment_id = .*?\"([\d]+)\"", res_html).group(1)
+        ret = re.search(r"comment_id = .*?\"([\d]+)\"", res_html)
+        if ret:
+            return ret.group(1)
+        # return re.search(r"comment_id = .*?\"([\d]+)\"", res_html).group(1)
 
     @staticmethod
     def get_content_from_html(res_html):
@@ -429,7 +432,8 @@ if __name__ == '__main__':
     # thread_list = []
     # for thread_name in ["History", "Article", "Comment", "ReadLike"]:
     #     thread_list.append(globals()[thread_name]())
-    class_names = ["History", "Article", "Comment", "ReadLike", "KeyUin"]
+    # class_names = ["History", "Article", "Comment", "ReadLike", "KeyUin"]
+    class_names = ["History", "Article", "ReadLike", "KeyUin"]
     # class_names = ["Comment"]
     thread_list = [globals()[thread_name]() for thread_name in class_names]
 
